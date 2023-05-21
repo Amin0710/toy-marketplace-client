@@ -1,24 +1,51 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/boredom-busters-board-games-logo.png";
 import { AuthContext } from "../../Providers/AuthProvider";
+import google from "../../assets/google.png";
 
 const Login = () => {
-	const { signIn } = useContext(AuthContext);
+	const [error, setError] = useState("");
+	const { signIn, handleGoogleLogin } = useContext(AuthContext);
+	const location = useLocation();
+	const navigate = useNavigate();
+	const from = location.state?.from?.pathname || "/";
+
+	const handleGoogleLoginLocation = () =>
+		handleGoogleLogin().then(() => {
+			navigate(from, { replace: true });
+		});
 
 	const handleLogin = (event) => {
 		event.preventDefault();
 		const form = event.target;
-		const name = form.name.value;
 		const email = form.email.value;
 		const password = form.password.value;
-		console.log(email, password);
-		signIn(name, email, password)
-			.then((result) => {
-				const user = result.user;
-				console.log(user);
+
+		signIn(email, password)
+			.then(() => {
+				navigate(from, { replace: true });
 			})
-			.catch((error) => console.log(error));
+			.catch((error) => {
+				console.log(error.message);
+
+				if (error.code === "auth/user-not-found") {
+					setError("User not found. Please Sign up first.");
+					return;
+				}
+				if (error.code === "auth/invalid-email") {
+					setError("Please type a valid E-mail");
+					return;
+				}
+				if (error.code === "auth/wrong-password") {
+					setError("Wrong password. Please try again.");
+					return;
+				}
+
+				setError(
+					error.message || "Something went wrong. Please try again later."
+				);
+			});
 	};
 	return (
 		<div className="hero min-h-screen bg-base-200">
@@ -52,7 +79,7 @@ const Login = () => {
 									<span className="label-text">Password</span>
 								</label>
 								<input
-									type="text"
+									type="password"
 									placeholder="password"
 									name="password"
 									className="input input-bordered"
@@ -71,6 +98,12 @@ const Login = () => {
 								/>
 							</div>
 						</form>
+						<button
+							className="btn flex items-center"
+							onClick={handleGoogleLoginLocation}>
+							Login with
+							<img src={google} alt="" className="ml-1 btn-icon w-5 h-5" />
+						</button>
 						<p className="my-4 text-center">
 							New to Boredom Busters
 							<Link className="text-purple-600 font-bold" to="/signup">
@@ -79,6 +112,7 @@ const Login = () => {
 							</Link>{" "}
 						</p>
 					</div>
+					<p className="text-red-700 text-center">{error}</p>
 				</div>
 			</div>
 		</div>
