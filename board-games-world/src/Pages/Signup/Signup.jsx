@@ -9,7 +9,7 @@ const Signup = () => {
 	const navigate = useNavigate();
 	const [accepted, setAccepted] = useState(false);
 
-	const handleLogin = (event) => {
+	const handleSignup = (event) => {
 		event.preventDefault();
 		const form = event.target;
 		const name = form.name.value;
@@ -19,6 +19,7 @@ const Signup = () => {
 		const confirm = form.confirm.value;
 
 		setError("");
+
 		if (password !== confirm) {
 			setError("Your password did not match");
 			return;
@@ -68,7 +69,7 @@ const Signup = () => {
 				</div>
 				<div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 					<div className="card-body">
-						<form onSubmit={handleLogin}>
+						<form onSubmit={handleSignup}>
 							<div className="form-control">
 								<label className="label">
 									<span className="label-text">Name</span>
