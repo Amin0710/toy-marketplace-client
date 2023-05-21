@@ -13,7 +13,7 @@ const Navbar = () => {
 						alt=""
 						className="rounded"
 					/>
-					Boredom Busters Board Games
+					<span className="hidden sm:block">Boredom Busters Board Games</span>
 				</Link>
 			</div>
 			<div className="flex-none">
@@ -26,6 +26,11 @@ const Navbar = () => {
 					</li>
 					<li>
 						<Link to="/">Blogs</Link>
+					</li>
+				</ul>
+				<ul className="menu menu-horizontal px-1">
+					<li>
+						<Link to="/login">Login</Link>
 					</li>
 				</ul>
 				<div className="dropdown dropdown-end">
