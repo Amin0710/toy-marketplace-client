@@ -6,7 +6,8 @@ import google from "../../assets/google.png";
 
 const Login = () => {
 	const [error, setError] = useState("");
-	const { signIn, handleGoogleLogin } = useContext(AuthContext);
+	const { signIn, handleGoogleLogin, setLoading, googleError } =
+		useContext(AuthContext);
 	const location = useLocation();
 	const navigate = useNavigate();
 	const from = location.state?.from?.pathname || "/";
@@ -27,7 +28,9 @@ const Login = () => {
 				navigate(from, { replace: true });
 			})
 			.catch((error) => {
-				console.log(error.message);
+				if (error) {
+					setLoading(false);
+				}
 
 				if (error.code === "auth/user-not-found") {
 					setError("User not found. Please Sign up first.");
@@ -112,7 +115,7 @@ const Login = () => {
 							</Link>{" "}
 						</p>
 					</div>
-					<p className="text-red-700 text-center">{error}</p>
+					<p className="text-red-700 text-center">{error || googleError}</p>
 				</div>
 			</div>
 		</div>

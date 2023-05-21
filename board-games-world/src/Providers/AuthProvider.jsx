@@ -18,6 +18,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
 	const [loading, setLoading] = useState(true);
+	const [googleError, setGoogleError] = useState("");
 
 	const createUser = (
 		email,
@@ -37,11 +38,13 @@ const AuthProvider = ({ children }) => {
 			})
 			.finally(() => {
 				setLoading(false);
+				setGoogleError("");
 			});
 	};
 
 	const signIn = (email, password) => {
 		setLoading(true);
+		setGoogleError("");
 		return signInWithEmailAndPassword(auth, email, password);
 	};
 
@@ -52,12 +55,13 @@ const AuthProvider = ({ children }) => {
 			.then((result) => {
 				const loggedInUser = result.user;
 				setUser(loggedInUser);
+				setGoogleError("");
 				setLoading(false);
 			})
 			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				console.log(errorCode, errorMessage);
+				if (error.code === "auth/popup-closed-by-user") {
+					setGoogleError("User closed the pop-up without signing in");
+				}
 				setLoading(false);
 				throw error; // re-throw the error to be caught by the caller
 			});
@@ -81,6 +85,8 @@ const AuthProvider = ({ children }) => {
 	const authInfo = {
 		user,
 		loading,
+		googleError,
+		setLoading,
 		createUser,
 		signIn,
 		logOut,
