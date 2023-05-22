@@ -31,23 +31,6 @@ const Banner = () => {
 			</div>
 		</div>
 	);
-
-	// return (
-	// 	<div className="container mx-auto py-8">
-	// 		<h1 className="text-2xl font-bold mb-4">Photo Gallery</h1>
-	// 		<div className="grid grid-cols-3 gap-4">
-	// 			{images.map((image, index) => (
-	// 				<div key={index} className="relative aspect-w-1 aspect-h-1">
-	// 					<img
-	// 						src={image}
-	// 						alt={`Image ${index + 1}`}
-	// 						className="object-cover rounded"
-	// 					/>
-	// 				</div>
-	// 			))}
-	// 		</div>
-	// 	</div>
-	// );
 };
 
 export default Banner;

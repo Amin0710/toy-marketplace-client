@@ -1,0 +1,34 @@
+[
+	{
+		"src": "../src/assets/Fans/1.mp4",
+		"type": "video"
+	},
+	{
+		"src": "../src/assets/Fans/2.mp4",
+		"type": "video"
+	},
+	{
+		"src": "../src/assets/Fans/1.mp4",
+		"type": "video"
+	},
+	{
+		"src": "../src/assets/Fans/3.jpg",
+		"type": "img"
+	},
+	{
+		"src": "../src/assets/Fans/4.jpg",
+		"type": "img"
+	},
+	{
+		"src": "../src/assets/Fans/7.jpeg",
+		"type": "img"
+	},
+	{
+		"src": "../src/assets/Fans/5.jpg",
+		"type": "img"
+	},
+	{
+		"src": "../src/assets/Fans/6.jpg",
+		"type": "img"
+	}
+]
