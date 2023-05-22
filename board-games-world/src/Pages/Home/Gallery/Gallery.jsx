@@ -15,16 +15,31 @@ const Gallery = () => {
 			<h1 className="text-2xl font-bold mb-4 text-purple-700 bg-white rounded-lg p-4">
 				Boredom Busters Gallery
 			</h1>
-			<h1 className="text-xl font-bold mb-4 text-purple-700 bg-white rounded-lg p-4">
+			<div className="grid grid-cols-3 gap-4 text-center mb-10">
+				{images
+					.filter((img) => img.type === "img-bust")
+					.map((image, index) => (
+						<div key={index} className="relative aspect-w-1 aspect-h-1">
+							<img
+								src={image.src}
+								alt={index + 1}
+								className="object-cover rounded"
+							/>
+						</div>
+					))}
+			</div>
+			<h1 className="text-xl font-bold mb-4 text-purple-700 bg-white rounded-lg p-2">
 				Fans Fun Videos
 			</h1>
-			<div className="grid grid-cols-3 gap-4 text-center mb-4">
+			<div className="grid grid-cols-3 mb-10">
 				{images
-					.filter((video) => video.type !== "img")
+					.filter((video) => video.type === "video")
 					.map((video, index) => (
-						<div key={index} className="relative aspect-w-1 aspect-h-1">
+						<div
+							key={index}
+							className="relative aspect-w-1 aspect-h-1 flex justify-center">
 							<video
-								src={video.src}
+								// src={video.src}
 								className="object-cover rounded"
 								autoPlay
 								loop
@@ -33,8 +48,8 @@ const Gallery = () => {
 						</div>
 					))}
 			</div>
-			<h1 className="text-xl font-bold mb-4 text-purple-700 bg-white rounded-lg p-4">
-				Fans Feedbacks Gallery
+			<h1 className="text-xl font-bold mb-4 text-purple-700 bg-white rounded-lg p-2">
+				Fans Gallery
 			</h1>
 			<div className="grid grid-cols-3 gap-4 text-center">
 				{images

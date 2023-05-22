@@ -25,10 +25,14 @@
 	},
 	{
 		"src": "../src/assets/Fans/5.jpg",
-		"type": "img"
+		"type": "img-bust"
+	},
+	{
+		"src": "../src/assets/Fans/8.jpeg",
+		"type": "img-bust"
 	},
 	{
 		"src": "../src/assets/Fans/6.jpg",
-		"type": "img"
+		"type": "img-bust"
 	}
 ]
