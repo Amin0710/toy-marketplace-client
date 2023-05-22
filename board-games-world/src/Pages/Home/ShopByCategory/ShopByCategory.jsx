@@ -15,15 +15,15 @@ const ShopByCategory = () => {
 			<Tabs>
 				<TabList className="flex justify-around">
 					<Tab>Strategy Games</Tab>
-					<Tab>Party Games</Tab>
-					<Tab>Cooperative Games</Tab>
+					<Tab>Family Games</Tab>
+					<Tab>Card, War and Hidden Identity</Tab>
 				</TabList>
 				<TabPanel>
 					<Tabs>
 						<TabList>
 							<Tab>Worker Placement</Tab>
 							<Tab>Area Control</Tab>
-							<Tab>Card-based Strategy</Tab>
+							<Tab>Deck Building</Tab>
 						</TabList>
 						<TabPanel>Game 1: Agricola Game 2: Catan Game 3: Burgundy</TabPanel>
 						<TabPanel>Game 1: Risk Game 2: Small World Game 3: Root</TabPanel>
@@ -35,9 +35,9 @@ const ShopByCategory = () => {
 				<TabPanel>
 					<Tabs>
 						<TabList>
-							<Tab>Trivia</Tab>
+							<Tab>Cooperative</Tab>
+							<Tab>Party Games</Tab>
 							<Tab>Classic Games</Tab>
-							<Tab>Social Deduction</Tab>
 						</TabList>
 						<TabPanel>
 							Game 1: Trivial Pursuit Game 2: Wits End Game 3: 7 Wonders
@@ -53,9 +53,9 @@ const ShopByCategory = () => {
 				<TabPanel>
 					<Tabs>
 						<TabList>
-							<Tab>Pandemic-themed</Tab>
-							<Tab>Classic Board Games</Tab>
-							<Tab>Adventure and Exploration</Tab>
+							<Tab>War Games</Tab>
+							<Tab>Card games</Tab>
+							<Tab>Hidden Identity Games</Tab>
 						</TabList>
 						<TabPanel>
 							Game 1: Pandemic Game 2: Pandemic Legacy: Season 1 Game 3:

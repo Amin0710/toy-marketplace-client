@@ -13,7 +13,7 @@ const Gallery = () => {
 	return (
 		<div className="container mx-auto py-8 text-center">
 			<h1 className="text-2xl font-bold mb-4 text-purple-700 bg-white rounded-lg p-4">
-				Boredom Busters Gallery
+				Boredom Buster&#39;s Gallery
 			</h1>
 			<div className="grid grid-cols-3 gap-4 text-center mb-10">
 				{images
