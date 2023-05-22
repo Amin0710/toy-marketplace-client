@@ -1,0 +1,50 @@
+[
+	{
+		"image_src": "../src/assets/Banner/catan.jpg",
+		"alt": "CATAN"
+	},
+	{
+		"image_src": "../src/assets/Banner/chess.jpg",
+		"alt": "CHESS"
+	},
+	{
+		"image_src": "../src/assets/Banner/monopoly.jpg",
+		"alt": "MONOPOLY"
+	},
+	{
+		"image_src": "../src/assets/Banner/risk.jpg",
+		"alt": "RISK"
+	},
+	{
+		"image_src": "../src/assets/Banner/snake.jpg",
+		"alt": "SNAKE"
+	},
+	{
+		"image_src": "../src/assets/Banner/something.jpg",
+		"alt": "CONCORDIA SOLITARIA"
+	},
+	{
+		"image_src": "../src/assets/Banner/Burgundy.jpg",
+		"alt": "CASTLES OF BURGUNDY"
+	},
+	{
+		"image_src": "../src/assets/Banner/7wonders.jpg",
+		"alt": "7 WONDERS"
+	},
+	{
+		"image_src": "../src/assets/Banner/ludo.jpg",
+		"alt": "LUDO"
+	},
+	{
+		"image_src": "../src/assets/Banner/pandamic.jpg",
+		"alt": "PANDAMIC"
+	},
+	{
+		"image_src": "../src/assets/Banner/poker.jpg",
+		"alt": "POKER"
+	},
+	{
+		"image_src": "../src/assets/Banner/root.jpg",
+		"alt": "ROOT"
+	}
+]
