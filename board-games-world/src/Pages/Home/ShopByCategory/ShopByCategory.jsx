@@ -83,7 +83,7 @@ const ShopByCategory = () => {
 														return (
 															<div
 																key={game.id}
-																className="w-full lg:w-1/3 px-4 my-4">
+																className="w-full lg:w-1/3 px-4 my-4 flex justify-center">
 																<GameCard game={game}></GameCard>
 															</div>
 														);
