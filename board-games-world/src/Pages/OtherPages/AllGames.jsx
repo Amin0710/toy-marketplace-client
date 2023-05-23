@@ -5,11 +5,24 @@ import AllGameCard from "./AllGameCard";
 const AllGames = () => {
 	const allGames = useLoaderData();
 	const [searchTerm, setSearchTerm] = useState(""); // State for the search input
+	const [currentPage, setCurrentPage] = useState(1);
+	const gamesPerPage = 20;
 
 	// Filter the games based on the search input
 	const filteredGames = allGames.filter((game) =>
 		game.game_name.toLowerCase().includes(searchTerm.toLowerCase())
 	);
+
+	// Pagination
+	const indexOfLastGame = currentPage * gamesPerPage;
+	const indexOfFirstGame = indexOfLastGame - gamesPerPage;
+	const currentGames = filteredGames.slice(indexOfFirstGame, indexOfLastGame);
+	const totalPages = Math.ceil(filteredGames.length / gamesPerPage);
+
+	// Function to change the current page
+	const handlePageChange = (page) => {
+		setCurrentPage(page);
+	};
 
 	return (
 		<div className="container mx-auto py-8 text-center">
@@ -26,13 +39,27 @@ const AllGames = () => {
 				/>
 			</div>
 			<div className="flex flex-wrap -mx-4 mt-4">
-				{filteredGames.map((game) => (
+				{currentGames.map((game) => (
 					<div
 						key={game.id}
 						className="w-full lg:w-1/4 px-4 my-4 flex justify-center">
 						<AllGameCard game={game}></AllGameCard>
 					</div>
 				))}
+			</div>
+			<div className="mt-4">
+				{Array.from({ length: totalPages }, (_, index) => index + 1).map(
+					(page) => (
+						<button
+							key={page}
+							className={`mr-2 px-4 py-2 border border-gray-400 rounded ${
+								page === currentPage ? "bg-purple-700 text-white" : ""
+							}`}
+							onClick={() => handlePageChange(page)}>
+							{page}
+						</button>
+					)
+				)}
 			</div>
 		</div>
 	);
