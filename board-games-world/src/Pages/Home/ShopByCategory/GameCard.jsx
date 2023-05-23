@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const GameCard = ({ game }) => {
 	return (
 		<div className="card card-compact w-96 bg-gray-300 shadow-xl p-4">
@@ -15,7 +16,9 @@ const GameCard = ({ game }) => {
 					</div>
 				</div>
 				<div className="card-actions justify-end">
-					<button className="btn btn-primary">View Details</button>
+					<Link to={`/games/${game.id}`}>
+						<button className="btn btn-primary">View Details</button>
+					</Link>
 				</div>
 			</div>
 		</div>

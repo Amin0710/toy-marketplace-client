@@ -37,10 +37,10 @@ const Navbar = () => {
 							<Link to="/">Home</Link>
 						</li>
 						<li>
-							<Link to="/">All Toys</Link>
+							<Link to="/games">All Games</Link>
 						</li>
 						<li>
-							<Link to="/">Blogs</Link>
+							<Link to="/blog">Blogs</Link>
 						</li>
 					</ul>
 					{loading ? (
@@ -78,10 +78,10 @@ const Navbar = () => {
 								tabIndex={0}
 								className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 								<li>
-									<Link to="/">My Toys</Link>
+									<Link to="/my_games">My Games</Link>
 								</li>
 								<li>
-									<Link to="/">Add A Toy</Link>
+									<Link to="/add_game">Add A Game</Link>
 								</li>
 								<li>
 									<button onClick={logOut}>Log Out</button>
