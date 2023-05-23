@@ -6,8 +6,10 @@ import Login from "../Pages/Login/Login";
 import AddGames from "../Pages/OtherPages/AddGames";
 import AllGames from "../Pages/OtherPages/AllGames";
 import Blogs from "../Pages/OtherPages/Blogs";
+import GamePage from "../Pages/OtherPages/GamePage";
 import MyGames from "../Pages/OtherPages/MyGames";
 import Signup from "../Pages/Signup/Signup";
+import PrivateRoute from "./PrivetRoutes";
 
 const router = createBrowserRouter([
 	{
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
 				element: <Signup></Signup>,
 			},
 			{
-				path: "games",
+				path: "all_games",
 				element: <AllGames></AllGames>,
 			},
 			{
@@ -37,11 +39,39 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "my_games",
-				element: <MyGames></MyGames>,
+				element: (
+					<PrivateRoute>
+						<MyGames></MyGames>
+					</PrivateRoute>
+				),
 			},
 			{
 				path: "add_game",
-				element: <AddGames></AddGames>,
+				element: (
+					<PrivateRoute>
+						<AddGames></AddGames>,
+					</PrivateRoute>
+				),
+			},
+		],
+	},
+	{
+		path: "games",
+		element: <Main></Main>,
+		errorElement: <ErrorPage />,
+		children: [
+			{
+				path: "/games/:id",
+				element: (
+					<PrivateRoute>
+						<GamePage></GamePage>
+					</PrivateRoute>
+				),
+				errorElement: <ErrorPage />,
+				loader: ({ params }) =>
+					fetch(
+						`https://b7a10-chef-recipe-hunter-server-side-amin0710-amin0710.vercel.app/chefs/${params.id}`
+					),
 			},
 		],
 	},
