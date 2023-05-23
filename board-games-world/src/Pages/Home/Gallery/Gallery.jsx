@@ -12,7 +12,7 @@ const Gallery = () => {
 
 	return (
 		<div className="container mx-auto py-8 text-center">
-			<h1 className="text-2xl font-bold mb-4 text-purple-700 bg-white rounded-lg p-4">
+			<h1 className="text-2xl font-bold mb-4 text-purple-700 bg-gray-300 rounded-lg p-4">
 				Boredom Buster&#39;s Gallery
 			</h1>
 			<div className="grid grid-cols-3 gap-4 text-center mb-10">
@@ -28,7 +28,7 @@ const Gallery = () => {
 						</div>
 					))}
 			</div>
-			<h1 className="text-xl font-bold mb-4 text-purple-700 bg-white rounded-lg p-2">
+			<h1 className="text-xl font-bold mb-4 text-purple-700 bg-gray-300 rounded-lg p-2">
 				Fans Fun Videos
 			</h1>
 			<div className="grid grid-cols-3 mb-10">
@@ -48,7 +48,7 @@ const Gallery = () => {
 						</div>
 					))}
 			</div>
-			<h1 className="text-xl font-bold mb-4 text-purple-700 bg-white rounded-lg p-2">
+			<h1 className="text-xl font-bold mb-4 text-purple-700 bg-gray-300 rounded-lg p-2">
 				Fans Gallery
 			</h1>
 			<div className="grid grid-cols-3 gap-4 text-center">
