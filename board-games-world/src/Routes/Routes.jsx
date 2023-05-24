@@ -32,7 +32,7 @@ const router = createBrowserRouter([
 			{
 				path: "all_games",
 				element: <AllGames></AllGames>,
-				loader: () => fetch(`/games.json`),
+				loader: () => fetch(`http://localhost:5001/games`),
 			},
 			{
 				path: "blog",
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
 						<MyGames></MyGames>
 					</PrivateRoute>
 				),
-				loader: () => fetch(`/games.json`),
+				loader: () => fetch(`http://localhost:5001/games`),
 			},
 			{
 				path: "add_game",
@@ -70,7 +70,9 @@ const router = createBrowserRouter([
 					</PrivateRoute>
 				),
 				errorElement: <ErrorPage />,
-				loader: ({ params }) => fetch(`/games.json/${params.id}`),
+				loader: ({ params }) => {
+					return fetch(`http://localhost:5001/games/${params.id}`);
+				},
 			},
 		],
 	},

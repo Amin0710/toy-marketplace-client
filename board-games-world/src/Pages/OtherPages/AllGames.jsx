@@ -41,7 +41,7 @@ const AllGames = () => {
 			<div className="flex flex-wrap -mx-4 mt-4">
 				{currentGames.map((game) => (
 					<div
-						key={game.id}
+						key={game._id}
 						className="w-full lg:w-1/4 px-4 my-4 flex justify-center">
 						<AllGameCard game={game}></AllGameCard>
 					</div>

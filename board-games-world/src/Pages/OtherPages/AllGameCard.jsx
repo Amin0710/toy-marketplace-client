@@ -18,7 +18,7 @@ const AllGameCard = ({ game }) => {
 					</div>
 				</div>
 				<div>
-					<Link to={`/games/${game.id}`}>
+					<Link to={`/games/${game._id}`}>
 						<button className="btn btn-primary w-full">View Details</button>
 					</Link>
 				</div>

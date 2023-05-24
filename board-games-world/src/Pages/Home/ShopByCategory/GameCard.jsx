@@ -16,7 +16,7 @@ const GameCard = ({ game }) => {
 					</div>
 				</div>
 				<div className="card-actions justify-end">
-					<Link to={`/games/${game.id}`}>
+					<Link to={`/games/${game._id}`}>
 						<button className="btn btn-primary">View Details</button>
 					</Link>
 				</div>

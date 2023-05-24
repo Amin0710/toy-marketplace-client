@@ -7,7 +7,7 @@ const ShopByCategory = () => {
 	const [games, setGames] = useState([]);
 
 	useEffect(() => {
-		fetch("/games.json")
+		fetch("http://localhost:5001/games")
 			.then((response) => response.json())
 			.then((data) => setGames(data))
 			.catch((error) => console.error("Error fetching data:", error));
@@ -82,7 +82,7 @@ const ShopByCategory = () => {
 													.map((game) => {
 														return (
 															<div
-																key={game.id}
+																key={game._id}
 																className="w-full lg:w-1/3 px-4 my-4 flex justify-center">
 																<GameCard game={game}></GameCard>
 															</div>
