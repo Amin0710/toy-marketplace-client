@@ -41,7 +41,7 @@ const AllGames = () => {
 	return (
 		<div className="container mx-auto py-8 text-center">
 			<h1 className="text-2xl font-bold mb-4 text-purple-700 bg-gray-300 rounded-lg p-4">
-				Boredom Buster&#39;s Gallery
+				Boredom Buster&#39;s Games
 			</h1>
 			<div className="mt-4">
 				<input
