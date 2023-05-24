@@ -20,16 +20,20 @@ const Navbar = () => {
 		<div className="navbar  min-h-[150px] mb-10 flex items-center justify-center bg-[#661AE6]">
 			<div className="container">
 				<div className="flex-1">
-					<Link to="/" className="btn btn-ghost normal-case text-xl">
-						<img
-							src={logo}
-							height="100px"
-							width="100px"
-							alt=""
-							className="rounded"
-						/>
-						<span className="hidden sm:block">Boredom Busters Board Games</span>
-					</Link>
+					<div className="flex items-center">
+						<Link to="/">
+							<img
+								src={logo}
+								alt=""
+								className="rounded w-16 h-16 sm:w-32 sm:h-32  hidden sm:block"
+							/>
+						</Link>
+						<Link to="/" className="btn btn-ghost normal-case text-xl">
+							<span className="hidden sm:block">
+								Boredom Busters Board Games
+							</span>
+						</Link>
+					</div>
 				</div>
 				<div className="flex align-middle justify-center">
 					<ul className="menu menu-horizontal px-1">

@@ -5,7 +5,7 @@ const GamePage = () => {
 
 	return (
 		<div className="flex items-center justify-center mb-8">
-			<div className=" container hero min-h-fit bg-gray-200 rounded">
+			<div className=" container hero lg:py-20 bg-gray-200 rounded">
 				<div className="hero-content flex-col lg:flex-row-reverse">
 					<img
 						src={game.picture_url}
@@ -24,9 +24,9 @@ const GamePage = () => {
 						<p className="py-2 text-purple-700">
 							Available Quantity: {game.available_quantity}
 						</p>
-						<button className="btn btn-primary">
-							<label htmlFor="my-modal-4">Detail description</label>
-						</button>
+						<label htmlFor="my-modal-4" className="btn btn-primary">
+							Detail description
+						</label>
 
 						{/* Modal */}
 						<input type="checkbox" id="my-modal-4" className="modal-toggle" />
