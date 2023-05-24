@@ -34,7 +34,10 @@ const AllGames = () => {
 					type="text"
 					placeholder="Search..."
 					value={searchTerm}
-					onChange={(e) => setSearchTerm(e.target.value)}
+					onChange={(e) => {
+						setCurrentPage(1);
+						setSearchTerm(e.target.value);
+					}}
 					className="w-full p-2 border border-gray-400 rounded"
 				/>
 			</div>
