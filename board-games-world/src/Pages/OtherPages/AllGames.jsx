@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import AllGameCard from "./AllGameCard";
 
@@ -7,6 +7,7 @@ const AllGames = () => {
 	const [searchTerm, setSearchTerm] = useState(""); // State for the search input
 	const [currentPage, setCurrentPage] = useState(1);
 	const gamesPerPage = 20;
+	const beforeSearchPage = useRef(1);
 
 	// Filter the games based on the search input
 	const filteredGames = allGames.filter((game) =>
@@ -18,6 +19,19 @@ const AllGames = () => {
 	const indexOfFirstGame = indexOfLastGame - gamesPerPage;
 	const currentGames = filteredGames.slice(indexOfFirstGame, indexOfLastGame);
 	const totalPages = Math.ceil(filteredGames.length / gamesPerPage);
+
+	const handleSearchTermChange = (e) => {
+		console.log(searchTerm);
+		if (!searchTerm) {
+			beforeSearchPage.current = currentPage;
+		}
+		setCurrentPage(1);
+		const newSearchTerm = e.target.value;
+		setSearchTerm(newSearchTerm);
+		if (newSearchTerm === "") {
+			setCurrentPage(beforeSearchPage.current);
+		}
+	};
 
 	// Function to change the current page
 	const handlePageChange = (page) => {
@@ -34,10 +48,7 @@ const AllGames = () => {
 					type="text"
 					placeholder="Search..."
 					value={searchTerm}
-					onChange={(e) => {
-						setCurrentPage(1);
-						setSearchTerm(e.target.value);
-					}}
+					onChange={handleSearchTermChange}
 					className="w-full p-2 border border-gray-400 rounded"
 				/>
 			</div>
