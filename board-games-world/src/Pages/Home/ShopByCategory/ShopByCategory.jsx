@@ -71,7 +71,7 @@ const ShopByCategory = () => {
 								{top3SubCategories.map((sub_category, index) => {
 									return (
 										<TabPanel key={index}>
-											<div className="flex flex-wrap -mx-4">
+											<div className="flex flex-wrap">
 												{games
 													.filter((game) => {
 														return (

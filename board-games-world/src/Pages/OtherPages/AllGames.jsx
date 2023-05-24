@@ -52,7 +52,7 @@ const AllGames = () => {
 					className="w-full p-2 border border-gray-400 rounded"
 				/>
 			</div>
-			<div className="flex flex-wrap -mx-4 mt-4">
+			<div className="flex flex-wrap mt-4">
 				{currentGames.map((game) => (
 					<div
 						key={game._id}

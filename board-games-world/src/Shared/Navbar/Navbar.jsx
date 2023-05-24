@@ -53,7 +53,7 @@ const Navbar = () => {
 								className="bg-warning text-white px-4 py-2 rounded-md flex items-center"
 								disabled>
 								<span className="animate-spin mr-2 h-4 w-4 border-t-2 border-b-2 border-white rounded-full"></span>
-								Loading...
+								<span className="hidden sm:inline">Loading...</span>
 							</button>
 						</div>
 					) : (
