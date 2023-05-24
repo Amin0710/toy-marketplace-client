@@ -27,7 +27,23 @@ const PublicOnlyRoutes = ({ children }) => {
 		return children;
 	}
 
-	return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
+	return (
+		<div>
+			<Navigate to="/" state={{ from: location }} replace></Navigate>
+			<div className="toast toast-top toast-end">
+				<div className="alert alert-success">
+					<div>
+						<span>You are a logged in User.</span>
+					</div>
+				</div>
+				<div className="alert alert-info">
+					<div>
+						<span>Log out first before you use the login/signup page.</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default PublicOnlyRoutes;
