@@ -10,7 +10,7 @@ const PublicOnlyRoutes = ({ children }) => {
 		return (
 			<div className="flex flex-col items-center justify-center">
 				<div className="container my-5 py-5">
-					<div className="flex flex-col items-center">
+					<div className="flex flex-col items-center min-h-screen">
 						<progress className="progress w-56 bg-red-500 mb-4"></progress>
 						<progress className="progress w-56 bg-blue-500 mb-4"></progress>
 						<progress className="progress w-56 bg-white mb-4"></progress>

@@ -26,7 +26,7 @@ const router = createBrowserRouter([
 				path: "login",
 				element: (
 					<PublicOnlyRoutes>
-						<Login></Login>,
+						<Login></Login>
 					</PublicOnlyRoutes>
 				),
 			},
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
 				path: "signup",
 				element: (
 					<PublicOnlyRoutes>
-						<Signup></Signup>,
+						<Signup></Signup>
 					</PublicOnlyRoutes>
 				),
 			},
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
 				path: "add_game",
 				element: (
 					<PrivateRoute>
-						<AddGames></AddGames>,
+						<AddGames></AddGames>
 					</PrivateRoute>
 				),
 			},

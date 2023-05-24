@@ -15,8 +15,20 @@ const Home = () => {
 	useEffect(() => {
 		if (from === "/login" || from === "/signup") {
 			if (mounted) {
-				toast.success("You are a logged in User.");
-				toast.info("Log out first before you use the login/signup page.");
+				toast(
+					<div className="alert alert-success">
+						<div>
+							<span>You are a logged in User.</span>
+						</div>
+					</div>
+				);
+				toast(
+					<div className="alert alert-info">
+						<div>
+							<span>Log out first before you use the login/signup page.</span>
+						</div>
+					</div>
+				);
 			}
 		}
 	}, [from, mounted]);
@@ -30,13 +42,15 @@ const Home = () => {
 			<ToastContainer
 				position="top-right"
 				autoClose={10000}
-				hideProgressBar
 				newestOnTop={false}
 				closeOnClick
 				rtl={false}
 				pauseOnFocusLoss
 				draggable
 				pauseOnHover
+				toastStyle={{
+					backgroundColor: "transparent",
+				}}
 			/>
 			<Banner></Banner>
 			<ShopByCategory></ShopByCategory>
