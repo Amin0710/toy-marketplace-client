@@ -10,6 +10,7 @@ import GamePage from "../Pages/OtherPages/GamePage";
 import MyGames from "../Pages/OtherPages/MyGames";
 import Signup from "../Pages/Signup/Signup";
 import PrivateRoute from "./PrivetRoutes";
+import PublicOnlyRoutes from "./PublicOnlyRoutes";
 
 const router = createBrowserRouter([
 	{
@@ -23,11 +24,19 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "login",
-				element: <Login></Login>,
+				element: (
+					<PublicOnlyRoutes>
+						<Login></Login>,
+					</PublicOnlyRoutes>
+				),
 			},
 			{
 				path: "signup",
-				element: <Signup></Signup>,
+				element: (
+					<PublicOnlyRoutes>
+						<Signup></Signup>,
+					</PublicOnlyRoutes>
+				),
 			},
 			{
 				path: "all_games",
