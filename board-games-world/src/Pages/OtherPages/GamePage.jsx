@@ -4,9 +4,9 @@ const GamePage = () => {
 	const game = useLoaderData();
 
 	return (
-		<div className="flex items-center justify-center mb-8">
+		<div className="flex items-center justify-center my-10 ">
 			<div className=" container hero lg:py-20 bg-gray-200 rounded">
-				<div className="hero-content flex-col lg:flex-row-reverse">
+				<div className="hero-content flex-col lg:flex-row-reverse ">
 					<img
 						src={game.picture_url}
 						className="max-w-sm rounded-lg shadow-2xl"
