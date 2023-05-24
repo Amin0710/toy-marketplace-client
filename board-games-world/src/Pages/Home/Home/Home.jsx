@@ -18,14 +18,7 @@ const Home = () => {
 				toast(
 					<div className="alert alert-success">
 						<div>
-							<span>You are a logged in User.</span>
-						</div>
-					</div>
-				);
-				toast(
-					<div className="alert alert-info">
-						<div>
-							<span>Log out first before you use the login/signup page.</span>
+							<span>You have successfully logged in!</span>
 						</div>
 					</div>
 				);
