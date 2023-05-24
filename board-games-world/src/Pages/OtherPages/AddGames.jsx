@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import imgIcon from "../../assets/add-camera-icon.png";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddGames = () => {
 	const [photoURL, setPhotoURL] = useState("");
@@ -64,9 +66,17 @@ const AddGames = () => {
 			.then((data) => {
 				console.log(data);
 				if (data.insertedId) {
-					alert("service book successfully");
+					toast(
+						<div className="alert alert-success">
+							<div>
+								<span>Game added successfully</span>
+							</div>
+						</div>
+					);
 				}
 			});
+
+		setPhotoURL("");
 	};
 
 	const handleAccepted = (event) => {
@@ -75,10 +85,23 @@ const AddGames = () => {
 
 	return (
 		<div className="hero min-h-screen bg-gray-200 m-0">
+			<ToastContainer
+				position="top-right"
+				autoClose={10000}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				toastStyle={{
+					backgroundColor: "transparent",
+				}}
+			/>
 			<div className="hero-content flex-col lg:flex-row gap-20">
-				<div className="card shadow-2xl bg-base-100 text-center lg:text-left">
+				<div className="card shadow-2xl bg-base-100 text-center lg:text-left lg:min-h-[780px] lg:min-w-[552px]">
 					<div className="card-body bg-gray-200 m-5">
-						<h1 className="text-5xl font-bold mb-5 text-base-100 ">
+						<h1 className="text-5xl font-bold mb-5 text-base-100">
 							Add A Game
 						</h1>
 						<div className="form-control">
@@ -159,7 +182,7 @@ const AddGames = () => {
 									<input
 										type="text"
 										placeholder={user.email || "email"}
-										value={user.email || ""}
+										// value={user.email || ""}
 										name="email"
 										className="input input-bordered bg-gray-200 text-base-100"
 										required
