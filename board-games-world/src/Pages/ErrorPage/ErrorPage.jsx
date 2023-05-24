@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import fourOfour from "../../assets/404.jpg";
 
 const ErrorPage = () => {
@@ -5,6 +6,9 @@ const ErrorPage = () => {
 		<div className="flex items-center justify-center h-screen">
 			<div>
 				<h1 className="text-5xl font-bold">Oops!</h1>
+				<Link to="/" className="btn btn-primary my-8">
+					Back to Home
+				</Link>
 				<h1 className="text-red-500">আন্তাজে লিখলে এমনই হবে</h1>
 				<p>
 					Don&apos;t put random things in the URL bar. It&apos;s not good for
