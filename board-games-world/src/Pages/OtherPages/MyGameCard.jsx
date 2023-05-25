@@ -2,7 +2,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
-const MyGameCard = ({ game, deleteGame }) => {
+const MyGameCard = ({ game, deleteGame, editID }) => {
 	return (
 		<tr>
 			<td className="text-center">
@@ -24,8 +24,13 @@ const MyGameCard = ({ game, deleteGame }) => {
 			<td className="text-center px-0">{game.available_quantity}</td>
 			<td className="text-center px-0">${game.price}</td>
 			<th className="text-center px-0">
-				<button className="btn">
-					<FaRegEdit></FaRegEdit>
+				<button>
+					<label
+						htmlFor="my-modal-5"
+						className="btn"
+						onClick={() => editID(game._id)}>
+						<FaRegEdit></FaRegEdit>
+					</label>
 				</button>
 			</th>
 			<th className="text-center px-0">
