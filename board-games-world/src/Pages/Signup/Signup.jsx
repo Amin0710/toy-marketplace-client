@@ -19,6 +19,10 @@ const Signup = () => {
 		const confirm = form.confirm.value;
 
 		setError("");
+		// Reset the form
+		for (const input of form.querySelectorAll("input")) {
+			input.value = "";
+		}
 
 		if (password !== confirm) {
 			setError("Your password did not match");

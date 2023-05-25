@@ -77,6 +77,13 @@ const AddGames = () => {
 			});
 
 		setPhotoURL("");
+		// Reset the form
+		for (const input of form.querySelectorAll("input")) {
+			input.value = "";
+		}
+		for (const textarea of form.querySelectorAll("textarea")) {
+			textarea.value = "";
+		}
 	};
 
 	const handleAccepted = (event) => {
@@ -182,7 +189,7 @@ const AddGames = () => {
 									<input
 										type="text"
 										placeholder={user.email || "email"}
-										// value={user.email || ""}
+										value={user.email || ""}
 										name="email"
 										className="input input-bordered bg-gray-200 text-base-100"
 										required
