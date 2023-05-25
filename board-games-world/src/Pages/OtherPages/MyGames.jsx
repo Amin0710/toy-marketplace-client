@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import MyGameCard from "./MyGameCard";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { Link } from "react-router-dom";
 
 const MyGames = () => {
 	const { user } = useContext(AuthContext);
@@ -21,7 +22,10 @@ const MyGames = () => {
 	const [newAvailableQuantity, setNewAvailableQuantity] = useState("");
 	const [newDetailDescription, setNewDetailDescription] = useState("");
 
-	const url = `http://localhost:5001/mygames?seller_email=${user?.email}`;
+	//Sorting
+	const [sort, setSort] = useState(0);
+
+	const url = `http://localhost:5001/mygames?seller_email=${user?.email}&sort=${sort}}`;
 	useEffect(() => {
 		fetch(url)
 			.then((res) => res.json())
@@ -166,7 +170,7 @@ const MyGames = () => {
 			<h1 className="text-2xl font-bold mb-4 text-purple-700 bg-gray-300 rounded-lg p-4">
 				{user.displayName}&#39;s Games
 			</h1>
-			<div className="my-4">
+			<div className="my-4 flex bg-gray-200">
 				<input
 					type="text"
 					placeholder="Search..."
@@ -174,6 +178,24 @@ const MyGames = () => {
 					onChange={handleSearchTermChange}
 					className="w-full p-2 border border-gray-400 rounded"
 				/>
+				<div className="dropdown dropdown-end">
+					<label tabIndex={0} className="btn m-1">
+						Sort
+					</label>
+					<ul
+						tabIndex={0}
+						className="dropdown-content menu p-2 shadow bg-gray-200 rounded-box w-52 text-base-100">
+						<li>
+							<Link onClick={() => setSort(0)}>None</Link>
+						</li>
+						<li>
+							<Link onClick={() => setSort(1)}>Low to High</Link>
+						</li>
+						<li>
+							<Link onClick={() => setSort(-1)}>High to low</Link>
+						</li>
+					</ul>
+				</div>
 			</div>
 
 			<div className="overflow-x-auto w-full">
