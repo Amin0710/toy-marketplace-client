@@ -164,7 +164,7 @@ const AddGames = () => {
 									<input
 										type="text"
 										placeholder={user.displayName || "Seller Name"}
-										value={user.displayName || ""}
+										defaultValue={user.displayName || ""}
 										name="sellerName"
 										className="input input-bordered bg-gray-200 text-base-100"
 										required
@@ -189,7 +189,7 @@ const AddGames = () => {
 									<input
 										type="text"
 										placeholder={user.email || "email"}
-										value={user.email || ""}
+										defaultValue={user.email || ""}
 										name="email"
 										className="input input-bordered bg-gray-200 text-base-100"
 										required
