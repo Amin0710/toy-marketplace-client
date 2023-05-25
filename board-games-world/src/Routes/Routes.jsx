@@ -3,7 +3,7 @@ import Main from "../Layout/Main";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
-import AddGames from "../Pages/OtherPages/AddGames";
+import AddGames from "../Pages/OtherPages/AddGames/AddGames";
 import AllGames from "../Pages/OtherPages/AllGames";
 import Blogs from "../Pages/OtherPages/Blogs";
 import GamePage from "../Pages/OtherPages/GamePage";

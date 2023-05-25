@@ -2,8 +2,11 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/boredom-busters-board-games-logo.png";
 import { AuthContext } from "../../Providers/AuthProvider";
+import useTitle from "../../Shared/Hooks/useTitle";
 
 const Signup = () => {
+	useTitle("Signup");
+
 	const [error, setError] = useState("");
 	const { createUser, loading } = useContext(AuthContext);
 	const navigate = useNavigate();

@@ -5,8 +5,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import useTitle from "../../../Shared/Hooks/useTitle";
 
 const Home = () => {
+	useTitle("Home");
 	const location = useLocation();
 	const from = location.state?.from?.pathname || "/";
 

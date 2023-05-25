@@ -1,7 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import useTitle from "../../Shared/Hooks/useTitle";
 
 const Blog = () => {
+	useTitle("Blog");
+
 	return (
 		<div className="flex  justify-center my-10">
 			<div className="container bg-gray-200 rounded p-5">
