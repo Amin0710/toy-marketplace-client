@@ -1,16 +1,22 @@
+import { useEffect } from "react";
 import { useContext, useRef, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import MyGameCard from "./MyGameCard";
 
 const MyGames = () => {
 	const { user } = useContext(AuthContext);
-	const allGames = useLoaderData();
-	const myGames = allGames.filter((game) => game.seller_email === user.email);
-	const [searchTerm, setSearchTerm] = useState(""); // State for the search input
+	const [myGames, setMyGames] = useState([]);
+	const [searchTerm, setSearchTerm] = useState("");
 	const [currentPage, setCurrentPage] = useState(1);
 	const gamesPerPage = 20;
 	const beforeSearchPage = useRef(1);
+
+	const url = `http://localhost:5001/mygames?seller_email=${user?.email}`;
+	useEffect(() => {
+		fetch(url)
+			.then((res) => res.json())
+			.then((data) => setMyGames(data));
+	});
 
 	// Filter the games based on the search input
 	const filteredGames = myGames.filter((game) =>
