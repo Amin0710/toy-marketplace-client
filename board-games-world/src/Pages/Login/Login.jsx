@@ -6,7 +6,7 @@ import google from "../../assets/google.png";
 
 const Login = () => {
 	const [error, setError] = useState("");
-	const { signIn, handleGoogleLogin, setLoading, googleError } =
+	const { signIn, handleGoogleLogin, setLoading, googleError, loading } =
 		useContext(AuthContext);
 	const location = useLocation();
 	const navigate = useNavigate();
@@ -55,13 +55,24 @@ const Login = () => {
 			<div className="hero-content flex-col lg:flex-row gap-20">
 				<div className="text-center lg:text-left">
 					<h1 className="text-5xl font-bold mb-5">Login now!</h1>
-					<img
-						src={logo}
-						height="400px"
-						width="400px"
-						alt=""
-						className="rounded hidden sm:block"
-					/>
+					{loading ? (
+						<div className="flex flex-col items-center">
+							<progress className="progress w-56 bg-red-500 mb-4"></progress>
+							<progress className="progress w-56 bg-blue-500 mb-4"></progress>
+							<progress className="progress w-56 bg-white mb-4"></progress>
+							<progress className="progress w-56 bg-black mb-4"></progress>
+							<progress className="progress w-56 bg-green-500 mb-4"></progress>
+							<progress className="progress w-56 bg-yellow-500 mb-4"></progress>
+						</div>
+					) : (
+						<img
+							src={logo}
+							height="400px"
+							width="400px"
+							alt=""
+							className="rounded hidden sm:block"
+						/>
+					)}
 				</div>
 				<div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 					<div className="card-body">

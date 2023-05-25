@@ -5,7 +5,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const Signup = () => {
 	const [error, setError] = useState("");
-	const { createUser } = useContext(AuthContext);
+	const { createUser, loading } = useContext(AuthContext);
 	const navigate = useNavigate();
 	const [accepted, setAccepted] = useState(false);
 
@@ -19,10 +19,6 @@ const Signup = () => {
 		const confirm = form.confirm.value;
 
 		setError("");
-		// Reset the form
-		for (const input of form.querySelectorAll("input")) {
-			input.value = "";
-		}
 
 		if (password !== confirm) {
 			setError("Your password did not match");
@@ -47,11 +43,15 @@ const Signup = () => {
 					setError("User already exists. Please login.");
 					return;
 				}
-
 				setError(
 					error.message || "Something went wrong. Please try again later."
 				);
 			});
+
+		// Reset the form
+		for (const input of form.querySelectorAll("input")) {
+			input.value = "";
+		}
 	};
 
 	const handleAccepted = (event) => {
@@ -63,13 +63,24 @@ const Signup = () => {
 			<div className="hero-content flex-col lg:flex-row gap-20">
 				<div className="text-center lg:text-left">
 					<h1 className="text-5xl font-bold mb-5">Sign Up!</h1>
-					<img
-						src={logo}
-						height="400px"
-						width="400px"
-						alt=""
-						className="rounded hidden sm:block"
-					/>
+					{loading ? (
+						<div className="flex flex-col items-center">
+							<progress className="progress w-56 bg-red-500 mb-4"></progress>
+							<progress className="progress w-56 bg-blue-500 mb-4"></progress>
+							<progress className="progress w-56 bg-white mb-4"></progress>
+							<progress className="progress w-56 bg-black mb-4"></progress>
+							<progress className="progress w-56 bg-green-500 mb-4"></progress>
+							<progress className="progress w-56 bg-yellow-500 mb-4"></progress>
+						</div>
+					) : (
+						<img
+							src={logo}
+							height="400px"
+							width="400px"
+							alt=""
+							className="rounded hidden sm:block"
+						/>
+					)}
 				</div>
 				<div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 					<div className="card-body">
