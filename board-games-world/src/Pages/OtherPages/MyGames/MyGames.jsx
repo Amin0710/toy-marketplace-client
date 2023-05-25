@@ -5,8 +5,11 @@ import MyGameCard from "./MyGameCard";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { Link } from "react-router-dom";
+import useTitle from "../../../Shared/Hooks/useTitle";
 
 const MyGames = () => {
+	useTitle("My Games");
+
 	const { user } = useContext(AuthContext);
 	const [myGames, setMyGames] = useState([]);
 	const [editableGame, setEditableGame] = useState({});

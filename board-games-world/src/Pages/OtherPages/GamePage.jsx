@@ -1,6 +1,9 @@
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../Shared/Hooks/useTitle";
 
 const GamePage = () => {
+	useTitle("Game Page");
+
 	const game = useLoaderData();
 
 	return (

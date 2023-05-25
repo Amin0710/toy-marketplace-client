@@ -1,8 +1,11 @@
 import { useRef, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../Shared/Hooks/useTitle";
 import AllGameCard from "./AllGameCard";
 
 const AllGames = () => {
+	useTitle("All Games");
+
 	const allGames = useLoaderData();
 	const [searchTerm, setSearchTerm] = useState(""); // State for the search input
 	const [currentPage, setCurrentPage] = useState(1);

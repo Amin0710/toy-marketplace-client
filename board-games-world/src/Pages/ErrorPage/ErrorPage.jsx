@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import fourOfour from "../../assets/404.jpg";
+import useTitle from "../../Shared/Hooks/useTitle";
 
 const ErrorPage = () => {
+	useTitle("Error Page");
 	return (
 		<div className="flex items-center justify-center h-screen">
 			<div>
