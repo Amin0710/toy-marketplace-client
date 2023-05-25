@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useContext, useRef, useState } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
+import { AuthContext } from "../../../Providers/AuthProvider";
 import MyGameCard from "./MyGameCard";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";

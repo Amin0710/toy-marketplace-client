@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import useTitle from "../../Shared/Hooks/useTitle";
+import useTitle from "../../../Shared/Hooks/useTitle";
 import AllGameCard from "./AllGameCard";
 
 const AllGames = () => {

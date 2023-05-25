@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import imgIcon from "../../assets/add-camera-icon.png";
-import { AuthContext } from "../../../Providers/AuthProvider";
+import { AuthContext } from "../../Providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import useTitle from "../../../Shared/Hooks/useTitle";
+import useTitle from "../../Shared/Hooks/useTitle";
 
 const AddGames = () => {
 	useTitle("Add Games");

@@ -80,10 +80,11 @@ const Gallery = () => {
 				{images
 					.filter((img) => img.type === "img")
 					.map((image, index) => {
+						const imgNumber = index + 1;
 						const aosAnime =
-							index % 3 === 0
+							imgNumber % 3 === 0
 								? "fade-up-left"
-								: index % 3 === 1
+								: imgNumber % 3 === 1
 								? "fade-up-right"
 								: "fade-up";
 						return (

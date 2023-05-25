@@ -5,7 +5,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import useTitle from "../../Shared/Hooks/useTitle";
 
 const Signup = () => {
-	useTitle("Signup");
+	useTitle("Sign up");
 
 	const [error, setError] = useState("");
 	const { createUser, loading } = useContext(AuthContext);
