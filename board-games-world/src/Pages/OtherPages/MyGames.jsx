@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import MyGameCard from "./MyGameCard";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const MyGames = () => {
 	const { user } = useContext(AuthContext);
@@ -10,13 +12,44 @@ const MyGames = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const gamesPerPage = 20;
 	const beforeSearchPage = useRef(1);
+	const MySwal = withReactContent(Swal);
 
 	const url = `http://localhost:5001/mygames?seller_email=${user?.email}`;
 	useEffect(() => {
 		fetch(url)
 			.then((res) => res.json())
 			.then((data) => setMyGames(data));
-	});
+	}, [url]);
+
+	const deleteGame = (id) => {
+		MySwal.fire({
+			title: "There's no data recovery after deletion.",
+			text: "Please press DELETE to confirm.",
+			icon: "error",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "DELETE",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				fetch(`http://localhost:5001/games/${id}`, {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${localStorage.getItem("token")}`,
+					},
+				})
+					.then((res) => res.json())
+					.then((data) => {
+						if (data.deletedCount > 0) {
+							MySwal.fire("Deleted!", "Your file has been deleted.", "success");
+							const remainingGames = myGames.filter((game) => game._id !== id);
+							setMyGames(remainingGames);
+						}
+					});
+			}
+		});
+	};
 
 	// Filter the games based on the search input
 	const filteredGames = myGames.filter((game) =>
@@ -78,7 +111,10 @@ const MyGames = () => {
 					<tbody>
 						{/* rows */}
 						{currentGames.map((game) => (
-							<MyGameCard key={game._id} game={game}></MyGameCard>
+							<MyGameCard
+								key={game._id}
+								game={game}
+								deleteGame={deleteGame}></MyGameCard>
 						))}
 					</tbody>
 					{/* foot */}

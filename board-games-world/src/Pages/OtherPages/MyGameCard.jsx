@@ -2,7 +2,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
-const MyGameCard = ({ game }) => {
+const MyGameCard = ({ game, deleteGame }) => {
 	return (
 		<tr>
 			<td className="text-center">
@@ -29,7 +29,7 @@ const MyGameCard = ({ game }) => {
 				</button>
 			</th>
 			<th className="text-center px-0">
-				<button className="btn">
+				<button className="btn" onClick={() => deleteGame(game._id)}>
 					<FontAwesomeIcon icon={faTrashCan} />
 				</button>
 			</th>
