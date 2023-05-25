@@ -15,7 +15,9 @@ const Gallery = () => {
 			<h1 className="text-2xl font-bold mb-4 text-purple-700 bg-gray-300 rounded-lg p-4">
 				Boredom Buster&#39;s Gallery
 			</h1>
-			<div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center mb-10">
+			<div
+				className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center mb-10"
+				data-aos="fade-right">
 				{images
 					.filter((img) => img.type === "img-bust")
 					.map((image, index) => (
@@ -31,7 +33,9 @@ const Gallery = () => {
 			<h1 className="text-xl font-bold mb-4 text-purple-700 bg-gray-300 rounded-lg p-2">
 				Fans Fun Videos
 			</h1>
-			<div className="grid grid-cols-1 md:grid-cols-3 mb-10">
+			<div
+				className="grid grid-cols-1 md:grid-cols-3 mb-10"
+				data-aos="fade-right">
 				{images
 					.filter((video) => video.type === "video")
 					.map((video, index) => (

@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const AllGameCard = ({ game }) => {
+	useEffect(() => {
+		AOS.init();
+	}, []);
+
 	return (
-		<div className="card card-compact w-96 bg-gray-300 shadow-xl p-4">
+		<div
+			className="card card-compact w-96 bg-gray-300 shadow-xl p-4"
+			data-aos="zoom-in-up">
 			<figure>
 				<img src={game.picture_url} alt="Shoes" className="h-[350px]" />
 			</figure>
