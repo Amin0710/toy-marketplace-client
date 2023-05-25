@@ -13,7 +13,11 @@ const Banner = () => {
 	}, []);
 
 	return (
-		<div className="flex items-center justify-center mt-10">
+		<div
+			className="flex items-center justify-center mt-10"
+			data-aos="flip-left"
+			data-aos-easing="ease-out-cubic"
+			data-aos-duration="2000">
 			<div className="container">
 				<Carousel>
 					{images.map((image, index) => (
