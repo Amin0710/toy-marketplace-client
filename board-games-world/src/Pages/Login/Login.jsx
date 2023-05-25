@@ -1,8 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/boredom-busters-board-games-logo.png";
 import { AuthContext } from "../../Providers/AuthProvider";
 import google from "../../assets/google.png";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
 	const [error, setError] = useState("");
@@ -11,6 +13,26 @@ const Login = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const from = location.state?.from?.pathname || "/";
+
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		if (from !== "/") {
+			if (mounted) {
+				toast(
+					<div className="alert alert-error">
+						<div>
+							<span>You have to log in first to view details.</span>
+						</div>
+					</div>
+				);
+			}
+		}
+	}, [from, mounted]);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
 
 	const handleGoogleLoginLocation = () =>
 		handleGoogleLogin().then(() => {
@@ -129,6 +151,19 @@ const Login = () => {
 					<p className="text-red-700 text-center">{error || googleError}</p>
 				</div>
 			</div>
+			<ToastContainer
+				position="top-right"
+				autoClose={10000}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				toastStyle={{
+					backgroundColor: "transparent",
+				}}
+			/>
 		</div>
 	);
 };
