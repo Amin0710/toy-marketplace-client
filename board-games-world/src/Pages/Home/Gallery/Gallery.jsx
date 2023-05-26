@@ -1,16 +1,55 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import fan1 from "../../../assets/Fans/1.mp4";
+import fan2 from "../../../assets/Fans/2.mp4";
+import fan3 from "../../../assets/Fans/1.mp4";
+import fan4 from "../../../assets/Fans/3.jpg";
+import fan5 from "../../../assets/Fans/4.jpg";
+import fan6 from "../../../assets/Fans/7.jpeg";
+import fan7 from "../../../assets/Fans/5.jpg";
+import fan8 from "../../../assets/Fans/8.jpeg";
+import fan9 from "../../../assets/Fans/6.jpg";
+
+const images = [
+	{
+		src: fan1,
+		type: "video",
+	},
+	{
+		src: fan2,
+		type: "video",
+	},
+	{
+		src: fan3,
+		type: "video",
+	},
+	{
+		src: fan4,
+		type: "img",
+	},
+	{
+		src: fan5,
+		type: "img",
+	},
+	{
+		src: fan6,
+		type: "img",
+	},
+	{
+		src: fan7,
+		type: "img-bust",
+	},
+	{
+		src: fan8,
+		type: "img-bust",
+	},
+	{
+		src: fan9,
+		type: "img-bust",
+	},
+];
 
 const Gallery = () => {
-	const [images, setImages] = useState([]);
-
-	useEffect(() => {
-		fetch("/fansfeedback.json")
-			.then((response) => response.json())
-			.then((data) => setImages(data))
-			.catch((error) => console.error("Error fetching data:", error));
-	}, []);
-
-	const [muted, setMuted] = useState(false);
+	const [muted, setMuted] = useState(true);
 	const [stopLoop, setStopLoop] = useState(false);
 
 	const handleToggleMute = () => {
