@@ -79,12 +79,14 @@ const ShopByCategory = () => {
 															game.sub_category === sub_category
 														);
 													})
-													.map((game) => {
+													.map((game, index) => {
 														return (
 															<div
 																key={game._id}
 																className="w-full lg:w-1/3 px-4 my-4 flex justify-center">
-																<GameCard game={game}></GameCard>
+																<GameCard
+																	game={game}
+																	imgNumber={index + 1}></GameCard>
 															</div>
 														);
 													})}

@@ -3,14 +3,21 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
-const GameCard = ({ game }) => {
+const GameCard = ({ game, imgNumber }) => {
 	useEffect(() => {
 		AOS.init();
 	}, []);
+
+	const aosAnime =
+		imgNumber % 3 === 0
+			? "fade-up-left"
+			: imgNumber % 3 === 1
+			? "fade-up-right"
+			: "fade-up";
 	return (
 		<div
 			className="card card-compact w-96 bg-gray-300 shadow-xl p-4"
-			data-aos="fade-up">
+			data-aos={aosAnime}>
 			<figure>
 				<img src={game.picture_url} alt="Shoes" className="h-[350px]" />
 			</figure>
