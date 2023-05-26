@@ -58,13 +58,16 @@ const AddGames = () => {
 			return;
 		}
 
-		fetch("http://localhost:5001/games", {
-			method: "POST",
-			headers: {
-				"content-type": "application/json",
-			},
-			body: JSON.stringify(newGame),
-		})
+		fetch(
+			"https://b7a11-toy-marketplace-server-side-amin0710.vercel.app/games",
+			{
+				method: "POST",
+				headers: {
+					"content-type": "application/json",
+				},
+				body: JSON.stringify(newGame),
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);

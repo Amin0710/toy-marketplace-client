@@ -41,7 +41,10 @@ const router = createBrowserRouter([
 			{
 				path: "all_games",
 				element: <AllGames></AllGames>,
-				loader: () => fetch(`http://localhost:5001/games`),
+				loader: () =>
+					fetch(
+						`https://b7a11-toy-marketplace-server-side-amin0710.vercel.app/games`
+					),
 			},
 			{
 				path: "blog",
@@ -54,7 +57,10 @@ const router = createBrowserRouter([
 						<MyGames></MyGames>
 					</PrivateRoute>
 				),
-				loader: () => fetch(`http://localhost:5001/games`),
+				loader: () =>
+					fetch(
+						`https://b7a11-toy-marketplace-server-side-amin0710.vercel.app/games`
+					),
 			},
 			{
 				path: "add_game",
@@ -80,7 +86,9 @@ const router = createBrowserRouter([
 				),
 				errorElement: <ErrorPage />,
 				loader: ({ params }) => {
-					return fetch(`http://localhost:5001/games/${params.id}`);
+					return fetch(
+						`https://b7a11-toy-marketplace-server-side-amin0710.vercel.app/games/${params.id}`
+					);
 				},
 			},
 		],

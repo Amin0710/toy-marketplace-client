@@ -28,7 +28,7 @@ const MyGames = () => {
 	//Sorting
 	const [sort, setSort] = useState(0);
 
-	const url = `http://localhost:5001/mygames?seller_email=${user?.email}&sort=${sort}}`;
+	const url = `https://b7a11-toy-marketplace-server-side-amin0710.vercel.app/mygames?seller_email=${user?.email}&sort=${sort}}`;
 	useEffect(() => {
 		fetch(url)
 			.then((res) => res.json())
@@ -46,13 +46,16 @@ const MyGames = () => {
 			confirmButtonText: "DELETE",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5001/games/${id}`, {
-					method: "DELETE",
-					headers: {
-						"Content-Type": "application/json",
-						Authorization: `Bearer ${localStorage.getItem("token")}`,
-					},
-				})
+				fetch(
+					`https://b7a11-toy-marketplace-server-side-amin0710.vercel.app/games/${id}`,
+					{
+						method: "DELETE",
+						headers: {
+							"Content-Type": "application/json",
+							Authorization: `Bearer ${localStorage.getItem("token")}`,
+						},
+					}
+				)
 					.then((res) => res.json())
 					.then((data) => {
 						if (data.deletedCount > 0) {
@@ -77,18 +80,21 @@ const MyGames = () => {
 	};
 
 	const editGame = () => {
-		fetch(`http://localhost:5001/games/${editableGame._id}`, {
-			method: "PATCH",
-			headers: {
-				"Content-Type": "application/json",
-			},
+		fetch(
+			`https://b7a11-toy-marketplace-server-side-amin0710.vercel.app/games/${editableGame._id}`,
+			{
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json",
+				},
 
-			body: JSON.stringify({
-				price: newPrice,
-				available_quantity: newAvailableQuantity,
-				detail_description: newDetailDescription,
-			}),
-		})
+				body: JSON.stringify({
+					price: newPrice,
+					available_quantity: newAvailableQuantity,
+					detail_description: newDetailDescription,
+				}),
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data.modifiedCount > 0) {

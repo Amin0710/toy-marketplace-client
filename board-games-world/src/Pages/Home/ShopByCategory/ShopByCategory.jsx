@@ -7,7 +7,7 @@ const ShopByCategory = () => {
 	const [games, setGames] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:5001/games")
+		fetch("https://b7a11-toy-marketplace-server-side-amin0710.vercel.app/games")
 			.then((response) => response.json())
 			.then((data) => setGames(data))
 			.catch((error) => console.error("Error fetching data:", error));
